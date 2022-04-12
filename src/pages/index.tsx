@@ -20,7 +20,9 @@ export default function Home(): JSX.Element {
     'images',
     // TODO AXIOS REQUEST WITH PARAM
     async ({ pageParam = null }) => {
-      const res = await api.get(`/api/images/?after=${pageParam}`);
+      const res = await api.get(
+        `/api/images/${pageParam ? `?after=${pageParam}` : ''}`
+      );
 
       return res.data;
     },
@@ -38,7 +40,8 @@ export default function Home(): JSX.Element {
 
   const formattedData = useMemo(() => {
     // TODO FORMAT AND FLAT DATA ARRAY
-    data.pages.flatMap(p => p.data);
+
+    return data?.pages.flatMap(p => p.data);
   }, [data]);
 
   // TODO RENDER LOADING SCREEN
