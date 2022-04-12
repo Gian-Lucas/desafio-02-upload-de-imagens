@@ -64,9 +64,11 @@ export default function Home(): JSX.Element {
           /* TODO RENDER LOAD MORE BUTTON IF DATA HAS NEXT PAGE */
           hasNextPage ? (
             isFetchingNextPage ? (
-              <Button>Carregando...</Button>
+              <Button mt="8">Carregando...</Button>
             ) : (
-              <Button onClick={() => fetchNextPage()}>Carregar mais</Button>
+              <Button mt="8" onClick={() => fetchNextPage()}>
+                Carregar mais
+              </Button>
             )
           ) : null
         }
